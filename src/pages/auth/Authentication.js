@@ -23,11 +23,11 @@ function Authentication() {
   }
 
   return (
-    <div  className="flex justify-center items-center relative h-[100vh] bg-white">
-      <div className='bg-gray-900 h-[60vh] w-[90%]  pt-10 pb-10 pl-20 pr-20 rounded-lg flex flex-col justify-center items-center gap-10 blur-0'>
-        <h1 className='text-white'>WELCOME!</h1>
-        <img src={login} alt="" className='w-[150px] align-middle justify-center bg-white rounded-full ' />
-      <h1 className='text-center text-white'>Sign In</h1>
+    <div  className="flex justify-center items-center relative h-[100vh] bg-slate-200">
+      <div className='bg-white shadow-lg text-black h-[60vh] w-[90%]  pt-10 pb-10 pl-20 pr-20 rounded-lg flex flex-col justify-center items-center gap-10 blur-0'>
+        <h1 className=''>WELCOME!</h1>
+        <img src={login} alt="" className='w-[150px] align-middle justify-center bg-black rounded-full ' />
+      <h1 className='text-center '>Sign In</h1>
       <button className='font-bold p-2 rounded-full border-0 flex items-center justify-center bg-white-300 w-[150px] ' onClick={SigninWithGoogle}>  <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="" className='h-6 align-middle'/>Google</button>
       </div>
     </div>
