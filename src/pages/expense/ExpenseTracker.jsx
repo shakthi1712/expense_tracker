@@ -71,7 +71,7 @@ const ExpenseTracker = () => {
       <div className='bg-white font-sans '>
         {profilePhoto && (
           <div className='flex items-center justify-between gap-4  bg-[#080808] h-[70px] shadow-2xl p-2 text-white'>
-            <div><span>EXPENSE</span> TRACKER</div>
+            <div className='font-sans text-red-500 font-light' ><span className='font-extrabold text-green-500' >EXPENSE</span> TRACKER</div>
             <div className='flex items-center justify-center gap-2' onClick={()=>{profile===false?setprofile(true):setprofile(false)}} >
               <img src={profilePhoto} alt="PROFILE" className='h-[40px] rounded-full shadow-xl' /><span className='text-white text-[10px]'>▼</span>
             </div>
