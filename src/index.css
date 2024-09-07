@@ -11,7 +11,7 @@
 .block-l{
   width: 380px;
   position: relative;
-  height: 40vh;
+  height: 43vh;
   padding: 20px;
   border-radius: 10px;
   z-index: 10;
@@ -26,5 +26,6 @@
   background-color:white;
   -webkit-box-shadow: 1px 1px 116px 67px rgba(0,0,0,0.75);
   -moz-box-shadow: 1px 1px 116px 67px rgba(0,0,0,0.75);
-  box-shadow: 1px 1px 116px 67px rgba(0,0,0,0.75)
+  box-shadow: 1px 1px 116px 67px rgba(0,0,0,0.75);
 }
+

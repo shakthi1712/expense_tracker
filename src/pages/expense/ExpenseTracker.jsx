@@ -10,43 +10,17 @@ import { db } from '../../config/firebase-config';
 import incomeimg from '../../asset/arrow down.jpg';
 import expenseimg from '../../asset/arrowup.jpg';
 import deletes from '../../asset/delete.png';
+import { format, isToday, isThisMonth, isThisYear } from 'date-fns';
 const ExpenseTracker = () => {
   const { addTransaction } = useAddTransaction();
   const [description, setDescription] = useState("");
   const [transactionAmount, setTransactionAmount] = useState();
   const [add, setadd] = useState(false);
   const [transactionType, setTransactionType] = useState("expense");
+  const [sortOption, setSortOption] = useState('all');
   const { transactions, transactionTotals } = useGetTransactions();
   const { name, profilePhoto } = useGetUserInfo();
   const inputRef = useRef(null);
-
-
-  //test 
-  const [selectedDate, setSelectedDate] = useState("");
-  const [selectedMonth, setSelectedMonth] = useState("");
-  const [selectedYear, setSelectedYear] = useState(""); // Your transactions array
-
-  // Filtering transactions based on selected date, month, and year
-  const filteredTransactions = transactions.filter((transaction) => {
-    const transactionDate = transaction.createdAt.toDate();
-
-    // Check by Date
-    if (selectedDate && transactionDate.getDate() !== parseInt(selectedDate)) return false;
-    
-    // Check by Month
-    if (selectedMonth && transactionDate.getMonth() + 1 !== parseInt(selectedMonth)) return false;
-    
-    // Check by Year
-    if (selectedYear && transactionDate.getFullYear() !== parseInt(selectedYear)) return false;
-    
-    return true;
-  });
-    const resetFilters = () => {
-    setSelectedDate("");
-    setSelectedMonth("");
-    setSelectedYear("");
-  }
-  //test end
   const { balance, income, expense } = transactionTotals;
   const navigate = useNavigate();
   const onSubmit = (e) => {
@@ -72,6 +46,25 @@ const ExpenseTracker = () => {
     const transactionDocRef = doc(db, "transaction", id);
     await deleteDoc(transactionDocRef);
   }
+  const filterTransactions = (transactions) => {
+    return transactions.filter((transaction) => {
+      const createdAt = transaction.createdAt?.toDate();
+      if (!createdAt) return false;
+
+      switch (sortOption) {
+        case 'today':
+          return isToday(createdAt);
+        case 'month':
+          return isThisMonth(createdAt);
+        case 'year':
+          return isThisYear(createdAt);
+        default:
+          return true; 
+      }
+    });
+  };
+
+  const filteredTransactions = filterTransactions(transactions);
   return (
     <div className='max-w-full sm:max-w-xs bg-white'>
       <div className='bg-white font-sans '>
@@ -104,23 +97,51 @@ const ExpenseTracker = () => {
         </div>
         <div className='flex items-center justify-center'>
           <form onSubmit={onSubmit} className={add === true ? 'block-l' : 'hidden'} >
-            <input className='w-[300px] h-[40px] border-0 outline-none bg-[#ffff] border-b-2 border-black text-[30px] text-black placeholder-gray-700 mb-8' ref={inputRef} type="text" placeholder='Description' value={description} required onChange={(e) => setDescription(e.target.value)} />
-            <input className='w-[300px] h-[40px] border-0 outline-none bg-[#ffff] border-b-2 border-black text-[30px] text-black placeholder-gray-700' type="number" placeholder='Amount' value={transactionAmount} required onChange={(e) => setTransactionAmount(e.target.value)} />
+            <input className='w-full h-[40px] border-0 outline-none bg-[#ffff] border-b-2 border-black text-[30px] text-black mb-8' ref={inputRef} type="text" placeholder='Description...' value={description} required onChange={(e) => setDescription(e.target.value)} />
+            <input className='w-full h-[40px] border-0 outline-none bg-[#ffff] border-b-2 border-black text-[30px] text-black' type="number" placeholder='Amount...' value={transactionAmount} required onChange={(e) => setTransactionAmount(e.target.value)} />
+            <select name="option" id="" onChange={(e) => { setDescription(e.target.value); }} className='block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 overflow-scroll ' >
+              <option value="">Recommended</option>
+              <option value="Income 💸">Income 💸</option>
+              <option value="Food 🍽️">Food 🍽️</option>
+              <option value="Milk 🥛">Milk 🥛</option>
+              <option value="Rent 🏠">Rent 🏠</option>
+              <option value="Movie 🎥">Movie 🎥</option>
+              <option value="Friuts 🍇">Friuts 🍇</option>
+              <option value="Vegetables 🥕">Vegetables 🥕</option>
+              <option value="Snacks 🥪">Snacks 🥪"</option>
+              <option value="Tea 🍵">Tea 🍵</option>
+              <option value="Petrol ⛽">Petrol ⛽</option>
+              <option value="Grocery 🛒">Grocery 🛒</option>
+            </select>
             <div className='flex items-center p-4 '>
               <input className='' type="radio" id='expense' value="expense" checked={transactionType === "expense"} onChange={(e) => setTransactionType(e.target.value)} />
               <label className='pr-8 text-[20px] text-gray-800 pl-2' htmlFor="expense">Expense</label>
               <input type="radio" id='income' value="income" checked={transactionType === "income"} onChange={(e) => setTransactionType(e.target.value)} />
               <label className='pr-8 text-[20px] text-gray-800 pl-2' htmlFor="income">Income</label>
             </div>
-            <button className='p-3 rounded-full border-0 outline-none shadow-lg bg-black text-white ' type='submit'>Add transaction</button>
-            <button onClick={() => { setadd(false) }} className=' w-9 h-9 fixed top-[275px] right-[35px] flex items-center justify-center rounded-full border-0 bg-white shadow-sm text-black text-[30px]'>x</button>
+            <button className='p-3 rounded-md border-0 outline-none shadow-lg bg-black text-white ' type='submit'>Add transaction</button>
+            <button onClick={() => { setadd(false) }} className=' w-9 h-9 absolute top-[20px] right-[20px] flex items-center border-0 justify-center rounded-full bg-white text-black text-[20px]'>✖️</button>
           </form>
         </div>
       </div>
       <div className='bg-white flex flex-col font-sans justify-center p-2 h-[54vh] '>
-        <h2 className='mt-2 p-1'>Recent Transactions</h2>
+        <div className='flex items-center justify-between'>
+          <h2 className='mt-2 p-1'>Recent Transactions</h2>
+          <select
+            id="filter"
+            value={sortOption}
+            onChange={(e) => setSortOption(e.target.value)}
+            className='w-[80px]'
+          >
+            <option value="all">Sort By</option>
+            <option value="all">All</option>
+            <option value="today">Today</option>
+            <option value="month">This Month</option>
+            <option value="year">This Year</option>
+          </select>
+        </div>
         <ul className='flex flex-col p-2 items-start list-none pb-5 h-[525px] overflow-scroll gap-2'>
-          {transactions.map((transaction) => {
+          {filteredTransactions.map((transaction) => {
             const { description, transactionAmount, transactionType, id, createdAt } = transaction;
             const formatTimestamp = (timestamp) => {
               if (!timestamp) return "";
@@ -148,6 +169,7 @@ const ExpenseTracker = () => {
       </div>
 
     </div>
+
   )
 }
 

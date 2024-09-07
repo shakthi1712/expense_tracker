@@ -11,7 +11,7 @@ export const useGetTransactions=()=>{
     const getTransactions= async ()=>{
         let unSubscribe;
         try{
-            const queryTransaction=query(transactionCollectionRef,where("userId","==",userId),orderBy("createdAt"))
+            const queryTransaction=query(transactionCollectionRef,where("userId","==",userId),orderBy("createdAt","desc"))
             onSnapshot(queryTransaction ,(snapshot)=>{
                 let docs=[];
                 let totalExpense=0;
