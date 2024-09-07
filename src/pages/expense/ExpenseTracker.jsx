@@ -117,7 +117,7 @@ const ExpenseTracker = () => {
             )
           })}
         </ul>  
-        <button className=' bg-black text-white fixed text-[50px] p-8 rounded-full h-4 w-4  flex items-center justify-center bottom-3 border-0 outline-none shadow-lg left-[40%]' onClick={() => { add === true ? setadd(false) : setadd(true) }}>+</button>
+        <button className=' bg-black text-white fixed text-[50px] p-8 rounded-full h-4 w-4  flex items-center justify-center bottom-3 border-0 outline-none shadow-lg left-[42.5%]' onClick={() => { add === true ? setadd(false) : setadd(true) }}>+</button>
       </div>
 
     </div>
