@@ -19,6 +19,34 @@ const ExpenseTracker = () => {
   const { transactions, transactionTotals } = useGetTransactions();
   const { name, profilePhoto } = useGetUserInfo();
   const inputRef = useRef(null);
+
+
+  //test 
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedMonth, setSelectedMonth] = useState("");
+  const [selectedYear, setSelectedYear] = useState(""); // Your transactions array
+
+  // Filtering transactions based on selected date, month, and year
+  const filteredTransactions = transactions.filter((transaction) => {
+    const transactionDate = transaction.createdAt.toDate();
+
+    // Check by Date
+    if (selectedDate && transactionDate.getDate() !== parseInt(selectedDate)) return false;
+    
+    // Check by Month
+    if (selectedMonth && transactionDate.getMonth() + 1 !== parseInt(selectedMonth)) return false;
+    
+    // Check by Year
+    if (selectedYear && transactionDate.getFullYear() !== parseInt(selectedYear)) return false;
+    
+    return true;
+  });
+    const resetFilters = () => {
+    setSelectedDate("");
+    setSelectedMonth("");
+    setSelectedYear("");
+  }
+  //test end
   const { balance, income, expense } = transactionTotals;
   const navigate = useNavigate();
   const onSubmit = (e) => {
@@ -48,7 +76,7 @@ const ExpenseTracker = () => {
     <div className='max-w-full sm:max-w-xs bg-white'>
       <div className='bg-white font-sans '>
         {profilePhoto && (
-          <div className='flex items-center justify-between gap-4  bg-[#080808] h-[70px] shadow-lg p-2 text-white rounded-md' >
+          <div className='flex items-center justify-between gap-4  bg-[#080808] h-[70px] shadow-2xl p-2 text-white rounded-b-lg'>
             <div className='flex items-center justify-center gap-2'>
               <img src={profilePhoto} alt="PROFILE" className='h-[40px] rounded-full shadow-xl' />
               <h3 className='shadow-lg' >{name}</h3>
@@ -85,7 +113,7 @@ const ExpenseTracker = () => {
               <label className='pr-8 text-[20px] text-gray-800 pl-2' htmlFor="income">Income</label>
             </div>
             <button className='p-3 rounded-full border-0 outline-none shadow-lg bg-black text-white ' type='submit'>Add transaction</button>
-            <button onClick={()=>{setadd(false)}} className=' w-8 h-8 flex items-center justify-center rounded-full border-0 bg-black shadow-lg text-white text-[30px]'>x</button>
+            <button onClick={() => { setadd(false) }} className=' w-9 h-9 fixed top-[275px] right-[35px] flex items-center justify-center rounded-full border-0 bg-white shadow-sm text-black text-[30px]'>x</button>
           </form>
         </div>
       </div>
@@ -99,16 +127,15 @@ const ExpenseTracker = () => {
               const date = timestamp.toDate();
               return date.toLocaleString();
             };
-
             return (
               <li className=' shadow-md rounded-md flex p-[20px] w-[98%] bg-slate-100 text-black justify-between'>
-               <div className='flex gap-2 items-center'>
-                {transactionType==='expense'?(<img className='w-8 h-8 rounded-full' src={expenseimg} alt="" />):(<img className='w-8 h-8 rounded-full' src={incomeimg} alt="" />)}
-               <div className='flex flex-col'>
-                  <h2>{description}</h2>
-                  <p className='font-mono text-[12px] text-[#050000e2]'>{formatTimestamp(createdAt)}</p>
+                <div className='flex gap-2 items-center'>
+                  {transactionType === 'expense' ? (<img className='w-8 h-8 rounded-full' src={expenseimg} alt="" />) : (<img className='w-8 h-8 rounded-full' src={incomeimg} alt="" />)}
+                  <div className='flex flex-col'>
+                    <h2>{description}</h2>
+                    <p className='font-mono text-[12px] text-[#050000e2]'>{formatTimestamp(createdAt)}</p>
+                  </div>
                 </div>
-               </div>
                 <div className='flex items-center justify-center gap-2'>
                   {transactionType === 'income' ? (<h5 className='text-green-400'>₹ {transactionAmount}</h5>) : (<h5 className='text-red-400'>₹ {transactionAmount}</h5>)}
                   <button className='p-1 rounded-md border-0 shadow-xl' onClick={() => deleteuser(id)} ><img className='w-6 h-6 opacity-60 line-clamp-2' src={deletes} alt="" /></button>
@@ -116,7 +143,7 @@ const ExpenseTracker = () => {
               </li>
             )
           })}
-        </ul>  
+        </ul>
         <button className=' bg-black text-white fixed text-[50px] p-8 rounded-full h-4 w-4  flex items-center justify-center bottom-3 border-0 outline-none shadow-lg left-[42.5%]' onClick={() => { add === true ? setadd(false) : setadd(true) }}>+</button>
       </div>
 
