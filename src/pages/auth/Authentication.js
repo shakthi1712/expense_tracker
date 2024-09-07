@@ -2,9 +2,7 @@ import { auth, provider } from '../../config/firebase-config';
 import { signInWithPopup } from 'firebase/auth';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { useGetUserInfo } from '../../hooks/useGetUserInfo';
-// import moneybg from '../../../public/asset/money bg.webp'
-import backgroundImage from '../../asset/image (1).png';
-import login from '../../asset/user.png'
+import login from '../../asset/user.png';
 
 function Authentication() {
   const navigate = useNavigate();
