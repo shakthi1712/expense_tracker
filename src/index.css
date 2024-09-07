@@ -29,3 +29,24 @@
   box-shadow: 1px 1px 116px 67px rgba(0,0,0,0.75);
 }
 
+.drop-p{
+  width: 40%;
+  height: 100px;
+  position: fixed;
+  right:5px;
+  top:75px;
+  background:white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  z-index: 20;
+  -webkit-box-shadow: -1px -1px 41px 3px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px -1px 41px 3px rgba(0,0,0,0.75);
+box-shadow: -1px -1px 41px 3px rgba(0,0,0,0.75);
+  
+}
+.drop-p>h4,button{
+  margin-left: 20px;
+}

@@ -14,6 +14,7 @@ import { format, isToday, isThisMonth, isThisYear } from 'date-fns';
 const ExpenseTracker = () => {
   const { addTransaction } = useAddTransaction();
   const [description, setDescription] = useState("");
+  const [profile,setprofile]=useState(false);
   const [transactionAmount, setTransactionAmount] = useState();
   const [add, setadd] = useState(false);
   const [transactionType, setTransactionType] = useState("expense");
@@ -66,18 +67,23 @@ const ExpenseTracker = () => {
 
   const filteredTransactions = filterTransactions(transactions);
   return (
-    <div className='max-w-full sm:max-w-xs bg-white'>
+    <div className='bg-white'>
       <div className='bg-white font-sans '>
         {profilePhoto && (
-          <div className='flex items-center justify-between gap-4  bg-[#080808] h-[70px] shadow-2xl p-2 text-white rounded-b-lg'>
-            <div className='flex items-center justify-center gap-2'>
-              <img src={profilePhoto} alt="PROFILE" className='h-[40px] rounded-full shadow-xl' />
-              <h3 className='shadow-lg' >{name}</h3>
+          <div className='flex items-center justify-between gap-4  bg-[#080808] h-[70px] shadow-2xl p-2 text-white'>
+            <div><span>EXPENSE</span> TRACKER</div>
+            <div className='flex items-center justify-center gap-2' onClick={()=>{profile===false?setprofile(true):setprofile(false)}} >
+              <img src={profilePhoto} alt="PROFILE" className='h-[40px] rounded-full shadow-xl' /><span className='text-white text-[10px]'>▼</span>
             </div>
-            <button className=' shadow-md p-2 rounded-full bg-[#ffffff] border-0 text-[#0b0b0b]  font-light outline-none text flex items-center justify-center ' onClick={SignOutuser}>SIGN OUT</button>
+            <div className={profile===true?'drop-p':'hidden'}>
+            <h4 >{name}</h4>
+            <span className='w-full h-[0.7px] bg-[#000000ae] p-0'></span>
+            <button className='p-1 border-0 bg-black text-white outline-none rounded-md shadow-md pl-3 pr-3' onClick={SignOutuser}>📤 SIGN OUT</button>
+            </div>
+            
           </div>
         )}
-        <div className='flex flex-col items-center'>
+        <div className='flex flex-col items-center' onClick={()=>{setprofile(false)}}>
           <div className=' bg-slate-100 shadow-lg rounded-md w-[97%] flex items-center justify-center flex-col text-black h-[200px] mt-2 md-2  text-[25px]'>
             <p className='text-[50px]'>🏦</p>
             <h3 className=''>BALANCE</h3>
@@ -95,7 +101,7 @@ const ExpenseTracker = () => {
           </div>
 
         </div>
-        <div className='flex items-center justify-center'>
+        <div className='flex items-center justify-center'onClick={()=>{setprofile(false)}}>
           <form onSubmit={onSubmit} className={add === true ? 'block-l' : 'hidden'} >
             <input className='w-full h-[40px] border-0 outline-none bg-[#ffff] border-b-2 border-black text-[30px] text-black mb-8' ref={inputRef} type="text" placeholder='Description...' value={description} required onChange={(e) => setDescription(e.target.value)} />
             <input className='w-full h-[40px] border-0 outline-none bg-[#ffff] border-b-2 border-black text-[30px] text-black' type="number" placeholder='Amount...' value={transactionAmount} required onChange={(e) => setTransactionAmount(e.target.value)} />
@@ -124,7 +130,7 @@ const ExpenseTracker = () => {
           </form>
         </div>
       </div>
-      <div className='bg-white flex flex-col font-sans justify-center p-2 h-[54vh] '>
+      <div className='bg-white flex flex-col font-sans justify-center p-2 h-[54vh] 'onClick={()=>{setprofile(false)}}>
         <div className='flex items-center justify-between'>
           <h2 className='mt-2 p-1'>Recent Transactions</h2>
           <select
@@ -165,7 +171,9 @@ const ExpenseTracker = () => {
             )
           })}
         </ul>
-        <button className=' bg-black text-white fixed text-[50px] p-8 rounded-full h-4 w-4  flex items-center justify-center bottom-3 border-0 outline-none shadow-lg left-[42.5%]' onClick={() => { add === true ? setadd(false) : setadd(true) }}>+</button>
+        <div className='w-full flex items-center justify-center' >
+        <button className=' bg-black text-white fixed text-[50px] p-8 rounded-full h-4 w-4  flex items-center justify-center bottom-3 border-0 outline-none shadow-lg' onClick={() => { add === true ? setadd(false) : setadd(true) }}>+</button>
+        </div>
       </div>
 
     </div>
