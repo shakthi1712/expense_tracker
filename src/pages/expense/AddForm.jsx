@@ -21,9 +21,9 @@ const [transactionAmount, setTransactionAmount] = useState();
     <>
          <div className='flex items-center justify-center'>
           <form onSubmit={onSubmit} className={add === true ? 'block-l' : 'hidden'} >
-            <input className='w-full h-[40px] border-0 outline-none bg-[#ffff] border-b-2 border-black text-[30px] text-black mb-8' ref={inputRef} type="text" placeholder='Description...' value={description} required onChange={(e) => setDescription(e.target.value)} />
-            <input className='w-full h-[40px] border-0 outline-none bg-[#ffff] border-b-2 border-black text-[30px] text-black' type="number" placeholder='Amount...' value={transactionAmount} required onChange={(e) => setTransactionAmount(e.target.value)} />
-            <select name="option" id="" onChange={(e) => { setDescription(e.target.value); }} className='block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 overflow-scroll '>
+            <input className='w-full h-[40px] border-0 outline-none bg-[#ffff] border-b-2 border-black text-[20px] text-black mb-8' ref={inputRef} type="text" placeholder='Description...' value={description} required onChange={(e) => setDescription(e.target.value)} />
+            <input className='w-full h-[40px] border-0 outline-none bg-[#ffff] border-b-2 border-black text-[20px] text-black' type="number" placeholder='Amount...' value={transactionAmount} required onChange={(e) => setTransactionAmount(e.target.value)} />
+            <select name="option" id="" onChange={(e) => { setDescription(e.target.value); }} className='block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 overflow-scroll '>
               {options.map((option)=>{
                 return (
                   <option key={option.value} value={option.value} >{option.label}</option>
