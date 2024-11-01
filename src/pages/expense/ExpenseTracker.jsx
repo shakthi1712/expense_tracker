@@ -5,14 +5,16 @@ import TransactionList from './TransactionList';
 const ExpenseTracker = () => {
   return (
     <div className='bg-white'>
-      <div className='bg-white font-sans'>
+      <div className='bg-black font-sans'>
         <Header />
         <TotalDatas />
       </div>
-      <div className='bg-white flex flex-col font-sans justify-center p-2 h-[54vh]'>
+      <div className='bg-black flex flex-col font-sans justify-center p-2 h-[53vh] text-[#fefefec7]'>
         <TransactionList />
       </div>
+      <div className='bg-black flex items-center justify-center h-[7vh] w-[100%]'>
       <AddForm />
+      </div>
     </div>
   )
 }

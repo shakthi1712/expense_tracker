@@ -9,13 +9,12 @@
   scroll-behavior: smooth;
 }
 .block-l{
-  width: 380px;
-  position: relative;
-  height: 43vh;
-  padding: 20px;
-  border-radius: 10px;
-  z-index: 10;
-  top:28vh;
+  width: 100%;
+  height: 55vh;
+  position: fixed;
+  left: 0.1px;
+  padding: 10px;
+  top:70px;
   display: block;
   position: fixed;
   display: flex;
@@ -23,30 +22,34 @@
   align-items: center;
   justify-content: center;
   gap:10px;
-  background-color:white;
+  background-color:rgb(255, 255, 255);
   -webkit-box-shadow: 1px 1px 116px 67px rgba(0,0,0,0.75);
   -moz-box-shadow: 1px 1px 116px 67px rgba(0,0,0,0.75);
   box-shadow: 1px 1px 116px 67px rgba(0,0,0,0.75);
 }
 
 .drop-p{
-  width: 40%;
-  height: 100px;
+  width: 100%;
+  height: 50vh;
   position: fixed;
-  right:5px;
-  top:75px;
-  background:white;
+  right: 0.1px;
+  top:70px;
+  background:rgb(4, 4, 4);
   color: black;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items:center ;
   justify-content: space-evenly;
+  flex-direction: column;
+  
   z-index: 20;
   -webkit-box-shadow: -1px -1px 41px 3px rgba(0,0,0,0.75);
 -moz-box-shadow: -1px -1px 41px 3px rgba(0,0,0,0.75);
 box-shadow: -1px -1px 41px 3px rgba(0,0,0,0.75);
   
 }
-.drop-p>h4,button{
-  margin-left: 20px;
+.bor{
+  border: 1px solid rgba(255, 255, 255, 0.521);
+}
+.borders{
+  border-bottom: 1px solid rgba(255, 255, 255, 0.697);
 }

@@ -40,9 +40,9 @@ const [transactionAmount, setTransactionAmount] = useState();
             <button onClick={() => { setadd(false) }} className=' w-9 h-9 absolute top-[20px] right-[20px] flex items-center border-0 justify-center rounded-full bg-white text-black text-[20px]'>✖️</button>
           </form>
         </div>
-    <div className='w-full flex items-center justify-center' >
-        <button className=' bg-black text-white fixed text-[50px] p-8 rounded-full h-4 w-4 mr-4  flex items-center justify-center bottom-3 border-0 outline-none shadow-lg' onClick={() => { add === true ? setadd(false) : setadd(true) }}>+</button>
-      </div>
+    <div>
+        <button className=' text-black text-[50px] p-7 rounded-full h-4 w-4  flex items-center justify-center outline-none shadow-lg' onClick={() => { add === true ? setadd(false) : setadd(true) }}>+</button>
+    </div>
     </>
   )
 }

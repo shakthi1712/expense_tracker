@@ -3,6 +3,7 @@ import { signOut } from 'firebase/auth';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../config/firebase-config';
+import MenuIcon from '@mui/icons-material/Menu';
 const Header = () => {
     const { name, profilePhoto } = useGetUserInfo();
     const [profile, setprofile] = useState(false);
@@ -22,14 +23,14 @@ const Header = () => {
         <>
             {profilePhoto && (
                 <div className='flex items-center justify-between gap-4  bg-[#080808] h-[70px] shadow-2xl p-2 text-white'>
-                    <div className='font-sans text-red-500 font-light' >🪙<span className='font-extrabold text-green-500' >EXPENSE</span> TRACKER</div>
+                    <div className='font-sans text-white font-light' >🪙<span className='font-extrabold text-white' >EXPENSE</span> TRACKER</div>
                     <div className='flex items-center justify-center gap-2' onClick={() => { profile === false ? setprofile(true) : setprofile(false) }} >
-                        <img src={profilePhoto} alt="PROFILE" className='h-[40px] rounded-full shadow-xl' /><span className='text-white text-[10px]'>▼</span>
+                        <MenuIcon fontSize='large' className='hover:cursor-pointer' />
                     </div>
                     <div className={profile === true ? 'drop-p' : 'hidden'}>
-                        <h4 >{name}</h4>
-                        <span className='w-full h-[0.7px] bg-[#000000ae] p-0'></span>
-                        <button className='p-1 border-0 bg-black text-white outline-none rounded-md shadow-md pl-3 pr-3' onClick={SignOutuser}>📤 SIGN OUT</button>
+                    <img src={profilePhoto} className='h-[150px] w-[150px] rounded-full shadow-xl' />
+                        <h4 className='text-2xl text-white'>{name}</h4>
+                        <button className='p-4 border-black border-[0.1px] text-black  outline-none rounded-md shadow-sm pl-4 pr-4' onClick={SignOutuser}>SIGN OUT</button>
                     </div>
                 </div>
             )}
@@ -38,3 +39,4 @@ const Header = () => {
 }
 
 export default Header;
+// <span className='text-white text-[10px]'>▼</span>
