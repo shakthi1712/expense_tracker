@@ -5,7 +5,7 @@ import TransactionList from './TransactionList';
 const ExpenseTracker = () => {
   return (
     <div className='bg-white'>
-      <div className='bg-black font-sans'>
+      <div className='bg-black font-sans h-[40vh]'>
         <Header />
         <TotalDatas />
       </div>
