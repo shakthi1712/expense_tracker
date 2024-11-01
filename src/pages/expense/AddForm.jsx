@@ -1,6 +1,7 @@
 import options from '../../Datas/Datas.json';
 import { useAddTransaction } from '../../hooks/useAddTransaction';
 import { useState, useRef } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
 
 const AddForm = () => {
     const inputRef = useRef(null);
@@ -37,11 +38,11 @@ const [transactionAmount, setTransactionAmount] = useState();
               <label className='pr-8 text-[20px] text-gray-800 pl-2' htmlFor="income">Income</label>
             </div>
             <button className='p-3 rounded-md border-0 outline-none shadow-lg bg-black text-white ' type='submit'>Add transaction</button>
-            <button onClick={() => { setadd(false) }} className=' w-9 h-9 absolute top-[20px] right-[20px] flex items-center border-0 justify-center rounded-full bg-white text-black text-[20px]'>✖️</button>
+            <button onClick={() => { setadd(false) }} className=' w-9 h-9 absolute top-[20px] right-[20px] flex items-center border-0 justify-center rounded-full bg-white text-black text-[20px]'><CloseIcon fontSize='large'/></button>
           </form>
         </div>
     <div>
-        <button className=' text-black text-[50px] p-7 rounded-full h-4 w-4  flex items-center justify-center outline-none shadow-lg' onClick={() => { add === true ? setadd(false) : setadd(true) }}>+</button>
+        <button className='bor text-white bg-black text-[50px] p-7 rounded-full h-4 w-4  flex items-center justify-center outline-none shadow-lg' onClick={() => { add === true ? setadd(false) : setadd(true) }}>+</button>
     </div>
     </>
   )

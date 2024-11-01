@@ -14,7 +14,7 @@
   position: fixed;
   left: 0.1px;
   padding: 10px;
-  top:70px;
+  bottom: 160px;
   display: block;
   position: fixed;
   display: flex;
@@ -23,9 +23,9 @@
   justify-content: center;
   gap:10px;
   background-color:rgb(255, 255, 255);
-  -webkit-box-shadow: 1px 1px 116px 67px rgba(0,0,0,0.75);
-  -moz-box-shadow: 1px 1px 116px 67px rgba(0,0,0,0.75);
-  box-shadow: 1px 1px 116px 67px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 1px 0px 300px 200px rgba(43,42,43,1);
+  -moz-box-shadow: 1px 0px 300px 200px rgba(43,42,43,1);
+  box-shadow: 1px 0px 300px 200px rgba(43,42,43,1);
 }
 
 .drop-p{
@@ -34,17 +34,13 @@
   position: fixed;
   right: 0.1px;
   top:70px;
-  background:rgb(4, 4, 4);
+  background:rgb(33, 33, 33);
   color: black;
   display: flex;
   align-items:center ;
   justify-content: space-evenly;
   flex-direction: column;
-  
   z-index: 20;
-  -webkit-box-shadow: -1px -1px 41px 3px rgba(0,0,0,0.75);
--moz-box-shadow: -1px -1px 41px 3px rgba(0,0,0,0.75);
-box-shadow: -1px -1px 41px 3px rgba(0,0,0,0.75);
   
 }
 .bor{

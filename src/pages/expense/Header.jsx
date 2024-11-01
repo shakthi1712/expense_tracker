@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../config/firebase-config';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 const Header = () => {
     const { name, profilePhoto } = useGetUserInfo();
     const [profile, setprofile] = useState(false);
@@ -22,10 +23,10 @@ const Header = () => {
     return (
         <>
             {profilePhoto && (
-                <div className='flex items-center justify-between gap-4  bg-[#080808] h-[70px] shadow-2xl p-2 text-white'>
+                <div className='flex items-center justify-between gap-4  bg-[#000000] h-[70px] shadow-2xl p-2 text-white'>
                     <div className='font-sans text-white font-light' >🪙<span className='font-extrabold text-white' >EXPENSE</span> TRACKER</div>
                     <div className='flex items-center justify-center gap-2' onClick={() => { profile === false ? setprofile(true) : setprofile(false) }} >
-                        <MenuIcon fontSize='large' className='hover:cursor-pointer' />
+                     {profile===true?(<CloseIcon fontSize='large' className='hover:cursor-pointer' />):(<MenuIcon fontSize='large' className='hover:cursor-pointer' />)}    
                     </div>
                     <div className={profile === true ? 'drop-p' : 'hidden'}>
                     <img src={profilePhoto} className='h-[150px] w-[150px] rounded-full shadow-xl' />
