@@ -5,7 +5,7 @@ export const TotalDatas = () => {
   return (
     <>
       <div className='flex flex-col items-center justify-center ml-2 w-[100%] mt-3 h-[80vh] total-data-min'>
-        <div className=' shadow-sm bg-[#c77dff] rounded-md w-[100%] h-[35vh] pl-2 flex flex-col items-center justify-center gap-3 total-data-balance'>
+        <div className=' shadow-sm bg-[#e9ecef] rounded-md w-[100%] h-[35vh] pl-2 flex flex-col items-center justify-center gap-3 total-data-balance'>
           <h3 className='white-text data-font'>BALANCE</h3>
           {balance >= 0 ? (<h1 className='text-[#000000]'> ₹ {balance.toLocaleString()}</h1>) : (<h1 className='text-black'> -₹ {Math.abs(balance).toLocaleString()}</h1>)}
         </div>

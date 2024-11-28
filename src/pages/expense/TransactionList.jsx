@@ -37,7 +37,7 @@ const TransactionList = () => {
             id="filter"
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
-            className='w-[50px] rounded-sm mt-3 bg-[#e9ecef] '
+            className='w-[50px] rounded-sm mt-3 bg-[#ffffff] '
           >
             <option value="all">Sort</option>
             <option value="all">All</option>
@@ -54,7 +54,7 @@ const TransactionList = () => {
               return date.toLocaleString();
             };
             return (
-              <li className=' shadow-md flex items-center p-[15px] w-[98%] bg-[#e9ecef] justify-between borders min-font'>
+              <li className=' shadow-md flex items-center p-[15px] w-[98%] bg-[#ffffff] justify-between borders min-font'>
                 <div className='flex gap-2 items-center'>
                   {transactionType === 'expense' ? (<img className='w-8 h-8 rounded-full' src={expenseimg} alt="" />) : (<img className='w-8 h-8 rounded-full' src={incomeimg} alt="" />)}
                   <div className='flex flex-col'>
