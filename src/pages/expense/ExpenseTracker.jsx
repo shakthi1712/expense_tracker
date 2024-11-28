@@ -6,7 +6,7 @@ import TransactionList from './TransactionList';
 
 const ExpenseTracker = () => {
   return (
-    <div className='bg-[#f5f8fc]'>
+    <div className='bg-[#e9ecef]'>
       <div className='min-header zindex'>
         <Header />
       </div>
@@ -18,7 +18,7 @@ const ExpenseTracker = () => {
           <TransactionList />
         </div>
       </div>
-      <div className='w-full bg-[#ffffff] flex items-start justify-center min-header'>
+      <div className='w-full bg-[#000000] flex items-start justify-center min-header'>
           <FormDialog />
       </div>
     </div>

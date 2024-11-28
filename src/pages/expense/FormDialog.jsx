@@ -25,7 +25,7 @@ export default function FormDialog() {
 
   return (
     <React.Fragment>
-      <button className='bg-[#ffffff] text-[#000] text-[45px] w-16 h-16 pb-5 rounded-full min-add' onClick={handleClickOpen}> <div className='flex items-center justify-center'>+</div>
+      <button className='bg-[#000000] text-[#fff] text-[45px] w-16 h-16 pb-5 rounded-full min-add' onClick={handleClickOpen}> <div className='flex items-center justify-center'>+</div>
       </button>
       <Dialog
         open={open}
@@ -42,37 +42,35 @@ export default function FormDialog() {
           },
         }}
       >
-        <DialogTitle>ADD TRANSACTION</DialogTitle>
+        <DialogTitle className='text-center' >ADD TRANSACTION</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
             required
             margin="dense"
-            id="name"
+           
             name="Name"
             label="Name"
             type="Name"
             fullWidth
-            variant="standard"
+            id="outlined-basic"l variant="outlined" 
             ref={inputRef} value={description} onChange={(e) => setDescription(e.target.value)}
           />
           <TextField
-            autoFocus
             required
             margin="dense"
-            id="name"
             name="Amount"
             label="Amount"
             type="number"
             fullWidth
-            variant="standard"
+            id="outlined-basic"l variant="outlined" 
             value={transactionAmount} onChange={(e) => setTransactionAmount(e.target.value)}
           />
           <div className='flex items-center p-4 font-sans justify-center '>
             <input className='' type="radio" id='expense' value="expense" checked={transactionType === "expense"} onChange={(e) => setTransactionType(e.target.value)} />
-            <label className='pr-8 text-[20px] text-gray-800 pl-2' htmlFor="expense">Expense</label>
+            <label className='pr-8 text-[15px] text-gray-800 pl-2' htmlFor="expense">Expense</label>
             <input type="radio" id='income' value="income" checked={transactionType === "income"} onChange={(e) => setTransactionType(e.target.value)} />
-            <label className='pr-8 text-[20px] text-gray-800 pl-2' htmlFor="income">Income</label>
+            <label className='pr-8 text-[15px] text-gray-800 pl-2' htmlFor="income">Income</label>
           </div>
         </DialogContent>
         <DialogActions>
