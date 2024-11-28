@@ -25,7 +25,7 @@ export default function FormDialog() {
 
   return (
     <React.Fragment>
-      <button className='bg-[#e9ecef] text-[#000] text-[45px] w-16 h-16 pb-5 rounded-full min-add' onClick={handleClickOpen}> <div className='flex items-center justify-center'>+</div>
+      <button className='bg-[#ced4da] text-[#000] text-[45px] w-16 h-16 pb-5 rounded-full min-add' onClick={handleClickOpen}> <div className='flex items-center justify-center'>+</div>
       </button>
       <Dialog
         open={open}

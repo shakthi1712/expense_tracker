@@ -24,7 +24,7 @@ const Header = () => {
         <>
             {profilePhoto && (
                 <>
-                <div className='flex items-center justify-between gap-4  bg-[#e9ecef] h-[70px]  p-2 text-black min-head-font min-header zindex'>
+                <div className='flex items-center justify-between gap-4 shadow-md bg-[#ced4da] h-[70px]  p-2 text-black min-head-font min-header zindex'>
                     <div className=' text-[#000] font-light' >🪙<span className='font-extrabold text-[#000]' >EXPENSE</span> TRACKER</div>
                     <div className='flex items-center justify-center gap-2' onClick={() => { profile === false ? setprofile(true) : setprofile(false) }} >
                      {profile===true?(<CloseIcon fontSize='large' className='hover:cursor-pointer text-black' />):(<MenuIcon fontSize='large' className='hover:cursor-pointer text-black' />)}    

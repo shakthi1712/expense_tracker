@@ -64,7 +64,7 @@ const TransactionList = () => {
                 </div>
                 <div className='flex items-center justify-center gap-2t'>
                   {transactionType === 'income' ? (<h5 className='text-green-600 min-font'>₹ {transactionAmount.toLocaleString()}</h5>) : (<h5 className='text-red-600 min-font'>₹ {transactionAmount.toLocaleString()}</h5>)}
-                  <button className='p-1 rounded-md border-0 text-[#2c2c2c] bg-[#e9ecef] flex items-center justify-center
+                  <button className='p-1 rounded-md border-0 text-[#2c2c2c] bg-[#ffffff] flex items-center justify-center
                   ' onClick={() => deleteuser(id)} > 
                   <DeleteIcon fontSize='medium' />
                    </button>

@@ -18,7 +18,7 @@ const ExpenseTracker = () => {
           <TransactionList />
         </div>
       </div>
-      <div className='w-full bg-[#e9ecef] flex items-start justify-center min-header'>
+      <div className='w-full bg-[#ced4da] flex items-start justify-center min-header'>
           <FormDialog />
       </div>
     </div>
