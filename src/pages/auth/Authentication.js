@@ -23,12 +23,12 @@ function Authentication() {
     return <Navigate to="expense-page" />
   }
   return (
-    <div  className="flex justify-center items-center relative h-[100vh] bg-slate-200">
-      <div className='bg-white shadow-lg text-black h-[50vh] w-[90%]  pt-10 pb-10 pl-20 pr-20 rounded-lg flex flex-col justify-center items-center gap-7 blur-0'>
+    <div  className="flex justify-center items-center relative h-[100vh] bg-[#fff]">
+      <div className='bg-[#cecece] shadow-lg text-black h-[50vh] w-[90%]  pt-10 pb-10 pl-20 pr-20 rounded-lg flex flex-col justify-center items-center gap-7 blur-0'>
         <h1 className=''>WELCOME!</h1>
         < AccountCircleIcon sx={{ fontSize: 150 }}/>
-      <h1 className='text-center '>Sign In</h1>
-      <button className='font-bold p-2 rounded-md bg-blue-400 border-0 flex items-center justify-center bg-white-300 w-[150px] shadow-md ' onClick={SigninWithGoogle}>  <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="" className='h-6 align-middle'/>Google</button>
+      <h1 className='text-center'>Sign In</h1>
+      <button className='font-bold p-2 rounded-md bg-[#f9fdff] border-0 flex items-center justify-center w-[150px] h-[50px] shadow-lg ' onClick={SigninWithGoogle}>  <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="" className='h-6 align-middle'/>Google</button>
       </div>
      
     </div>

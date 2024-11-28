@@ -2,11 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+
 * {
   margin: 0;
   padding: 0;
+  border: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  font-family: "K2D", sans-serif;
+}
+.white-text{
+  color: rgb(0, 0, 0);
 }
 .block-l{
   width: 100%;
@@ -33,22 +39,120 @@ box-shadow: 1px 0px 300px 200px rgba(0,0,0,1);
   height: 50vh;
   position: fixed;
   right: 0.1px;
-  top:70px;
-  background:rgb(3, 3, 3);
+  top:7%;
+  background:rgb(190, 190, 190);
   color: black;
   display: flex;
   align-items:center ;
-  justify-content: space-evenly;
+  justify-content:space-evenly;
   flex-direction: column;
-  z-index: 20;
-  -webkit-box-shadow: 0px 200px 300px 200px rgba(0,0,0,1);
--moz-box-shadow: 0px 200px 300px 200px rgba(0,0,0,1);
-box-shadow: 0px 200px 300px 200px rgba(0,0,0,1);
-  
+  z-index:1;
+  transition: top 0.5s ease;
+}
+.zindex{
+  position:relative;
+  z-index:20;
+}
+.hide{
+  width: 100%;
+  height: 50vh;
+  position: fixed;
+  right: 0.1px;
+  background:rgb(147, 147, 147);
+  color: black;
+  display: flex;
+  align-items:center ;
+  justify-content:space-evenly;
+  flex-direction: column;
+  top:-50%;
 }
 .bor{
   border: 0.5px solid rgba(255, 255, 255, 0.408);
 }
 .borders{
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.408);
+  border-bottom: 0.5px solid rgba(95, 95, 95, 0.408);
 }
+
+.scrollbar-thumb {
+  scrollbar-color: #161616 #e5e7ebad; 
+  scrollbar-width: thin; 
+}
+
+.scrollbar-thumb::-webkit-scrollbar {
+  width: 8px;
+  height: 4px;
+}
+.scrollbar-thumb::-webkit-scrollbar-track {
+  background-color: #e5e7ebfe; 
+}
+
+@media (max-width:760px) {
+  .min-screen{
+    display: flex;
+    flex-direction: column;
+  }
+  .min-screen-main{
+    width: 100%;
+    height: 30vh;
+  }
+  .total-data-min{
+   height: 100%;
+   margin-left: 0px;
+   margin-top: 10px;
+  }
+  .total-data-balance{
+    height:60%;
+    width: 95%;
+    margin:0;
+  }
+  .total-data-exp{
+    display: flex;
+    width: 95%;
+    height: 40%;
+    flex-direction: row;
+    gap:10px;
+    margin-top:10px;
+  }
+  .min-screen-list{
+    height: 56vh;
+    width: 100%;
+  }
+  .min-font{
+    font-size:15px;
+  }
+  .data-font{
+    font-size: 15px;
+  }
+  .data-font-amt{
+    font-size: 20px;
+  }
+  .min-screen-expense{
+    height: 100%;
+  }
+  .min-header{
+    height:7vh;
+  }
+  .min-head-font{
+    font-size: 15 px;
+  }
+  .min-add{
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    font-size: 40px;
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

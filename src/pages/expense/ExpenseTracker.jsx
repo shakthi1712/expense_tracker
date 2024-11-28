@@ -1,19 +1,25 @@
 import AddForm from './AddForm';
+import FormDialog from './FormDialog';
 import Header from './Header';
 import { TotalDatas } from './TotalDatas';
 import TransactionList from './TransactionList';
+
 const ExpenseTracker = () => {
   return (
-    <div className='bg-white'>
-      <div className='bg-black font-sans h-[40vh]'>
+    <div className='bg-[#f5f8fc]'>
+      <div className='min-header zindex'>
         <Header />
-        <TotalDatas />
       </div>
-      <div className='bg-black flex flex-col font-sans justify-center p-2 h-[53vh] text-[#fefefec7]'>
-        <TransactionList />
+      <div className='flex min-screen'>
+        <div className='h-[40vh] w-[50%] min-screen-main'>
+          <TotalDatas />
+        </div>
+        <div className=' flex flex-col items-end p-2 text-[#000000c7] w-[50%] h-[82vh] min-screen-list'>
+          <TransactionList />
+        </div>
       </div>
-      <div className='bg-black flex items-center justify-center h-[7vh] w-[100%]'>
-      <AddForm />
+      <div className='w-full bg-[#ffffff] flex items-start justify-center min-header'>
+          <FormDialog />
       </div>
     </div>
   )
