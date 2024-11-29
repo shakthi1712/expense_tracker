@@ -45,7 +45,7 @@ export default function ExpenseBarChart() {
     }, 0);
 
     return {
-      month: `${month}-${new Date().getFullYear()}`, // Format month as 'MM-YYYY'
+      month: `${month}`, // Format month as 'MM-YYYY'
       expenseAmount: totalAmount || 0, // If no data, set to 0
     };
   });
