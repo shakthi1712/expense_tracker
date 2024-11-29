@@ -28,9 +28,9 @@ const ExpenseTracker = () => {
        <ExpenseBarChart />
       </div>
       <div className='w-full bg-[#ced4da] flex items-center justify-around min-header'>
-          <HomeRoundedIcon fontSize="large" onClick={()=>setPage(false)} />
+          <HomeRoundedIcon fontSize="medium" onClick={()=>setPage(false)} />
           <FormDialog  />
-          <LeaderboardRoundedIcon fontSize="large" onClick={()=>setPage(true)} />
+          <LeaderboardRoundedIcon fontSize="medium" onClick={()=>setPage(true)} />
       </div>
     </div>
   )
