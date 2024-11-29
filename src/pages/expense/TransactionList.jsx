@@ -1,11 +1,9 @@
 import incomeimg from '../../asset/imagesdown-removebg-green.png';
 import expenseimg from '../../asset/imagesdown-removebg-red.png';
-import SortIcon from '@mui/icons-material/Sort';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from 'react';
 import { deleteDoc, doc } from 'firebase/firestore';
 import { db } from '../../config/firebase-config';
-import { isToday, isThisMonth, isThisYear } from 'date-fns';
 import { useGetTransactions } from '../../hooks/useGetTransactions';
 const TransactionList = () => {
     const { transactions } = useGetTransactions();

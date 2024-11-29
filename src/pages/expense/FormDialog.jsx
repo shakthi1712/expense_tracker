@@ -7,6 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useAddTransaction } from '../../hooks/useAddTransaction';
 import { useState, useRef } from 'react';
+import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
@@ -25,8 +26,9 @@ export default function FormDialog() {
 
   return (
     <React.Fragment>
-      <button className='bg-[#ced4da] text-[#000] text-[45px] w-16 h-16 pb-5 rounded-full min-add' onClick={handleClickOpen}> <div className='flex items-center justify-center'>+</div>
-      </button>
+      <div className='bg-[#ced4da] text-[#000] text-[45px] w-16 h-16 flex items-center justify-center rounded-full min-add' onClick={handleClickOpen}> 
+      <AddCircleRoundedIcon fontSize="large"  />
+      </div>
       <Dialog
         open={open}
         onClose={handleClose}

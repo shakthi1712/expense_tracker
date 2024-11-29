@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { auth } from '../../config/firebase-config';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import DownloadTransactions from './DownloadTransactions';
 const Header = () => {
     const { name, profilePhoto } = useGetUserInfo();
     const [profile, setprofile] = useState(false);
@@ -37,6 +38,7 @@ const Header = () => {
             <img src={profilePhoto} className='h-[100px] w-[100px] rounded-full shadow-xl'/>
                 <h4 className='text-2xl text-black'>{name}</h4>
                 <button className='p-4 border-black border-[0.1px] text-[#e9ecef] bg-black outline-none rounded-md shadow-lg pl-4 pr-4' onClick={SignOutuser}>SIGN OUT</button>
+                <DownloadTransactions />
             </div>
             </>
             )}

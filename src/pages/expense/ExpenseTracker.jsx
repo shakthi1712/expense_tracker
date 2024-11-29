@@ -1,16 +1,21 @@
-import AddForm from './AddForm';
+import BasicPie from './BasicPie'
+import ExpenseBarChart from './ExpenseBarChart';
 import FormDialog from './FormDialog';
 import Header from './Header';
 import { TotalDatas } from './TotalDatas';
 import TransactionList from './TransactionList';
-
+import FileDownloadRoundedIcon from '@mui/icons-material/FileDownloadRounded';
+import LeaderboardRoundedIcon from '@mui/icons-material/LeaderboardRounded';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import { useState } from 'react';
 const ExpenseTracker = () => {
+  const[page,setPage]=useState(false);
   return (
     <div className='bg-[#ffffff]'>
       <div className='min-header zindex'>
         <Header />
       </div>
-      <div className='flex min-screen'>
+      <div className={page===false?'flex min-screen':'hidden'} >
         <div className='h-[40vh] w-[50%] min-screen-main'>
           <TotalDatas />
         </div>
@@ -18,8 +23,15 @@ const ExpenseTracker = () => {
           <TransactionList />
         </div>
       </div>
-      <div className='w-full bg-[#ced4da] flex items-start justify-center min-header'>
-          <FormDialog />
+      <div className={page===true?'h-[86vh] flex flex-col justify-evenly p-4 ':'hidden'}>
+        <h3 className='text-center'>DATA VISUALIZATION</h3>
+        <BasicPie />
+       <ExpenseBarChart />
+      </div>
+      <div className='w-full bg-[#ced4da] flex items-center justify-around min-header'>
+          <HomeRoundedIcon fontSize="large" onClick={()=>setPage(false)} />
+          <FormDialog  />
+          <LeaderboardRoundedIcon fontSize="large" onClick={()=>setPage(true)} />
       </div>
     </div>
   )
