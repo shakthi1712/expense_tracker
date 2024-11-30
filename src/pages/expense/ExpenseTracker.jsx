@@ -24,10 +24,17 @@ const ExpenseTracker = () => {
           <TransactionList />
         </div>
       </div>
-      <div className={page===true?'h-[86vh] flex flex-col justify-evenly p-4 ':'hidden'}>
+      <div className={page===true?'h-[86vh] flex flex-col justify-evenly p-4 bg-black ':'hidden'}>
         <h3 className='text-center'>DATA VISUALIZATION</h3>
-        <BasicPie />
+        <div className='bg-white rounded-md'>
+       <BasicPie />
+       
+       </div>
+       <div  className='bg-white rounded-md'>
        <ExpenseBarChart />
+       </div>
+      
+
       </div>
       <div className='w-full shadow-lg flex items-center justify-around min-header'>
           <HomeRoundedIcon fontSize="medium" onClick={()=>setPage(false)} />
