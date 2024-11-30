@@ -24,7 +24,7 @@ const ExpenseTracker = () => {
           <TransactionList />
         </div>
       </div>
-      <div className={page===true?'h-[86vh] flex flex-col justify-evenly p-4 bg-black ':'hidden'}>
+      <div className={page===true?'h-[86vh] flex flex-col justify-evenly p-4 mode-set ':'hidden'}>
         <h3 className='text-center'>DATA VISUALIZATION</h3>
         <div className='bg-white rounded-md'>
        <BasicPie />
