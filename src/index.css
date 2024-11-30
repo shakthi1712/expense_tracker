@@ -14,6 +14,33 @@
 .white-text{
   color: rgb(0, 0, 0);
 }
+/* Global styles for light mode */
+.light-mode {
+  --background-color: rgb(255, 255, 255);
+  --background-color-element:#e1eff9;
+  --text-color: black;
+  --button-background:black;
+  --button-color:white;
+}
+.dark-mode {
+  --background-color: #141318;
+  --background-color-element:#373646;
+  --text-color: #FEFFFF;
+  --button-background:rgb(255, 255, 255);
+  --button-color:rgb(0, 0, 0);
+}
+.mode-set{
+  background-color: var(--background-color);
+  color:var(--text-color);
+}
+.mode-set-element{
+  background-color: var(--background-color-element);
+  color: var(--text-color);
+}
+.button-color{
+   background-color:var(--button-background);
+   color:var(--button-color);
+}
 .block-l{
   width: 100%;
   height: 55vh;
@@ -36,18 +63,19 @@ box-shadow: 1px 0px 300px 200px rgba(0,0,0,1);
 
 .drop-p{
   width: 100%;
-  height: 50vh;
+  height: 35vh;
   position: fixed;
   right: 0.1px;
   top:7%;
-  background:#ced4da;
-  color: rgb(0, 0, 0);
   display: flex;
-  align-items:center ;
-  justify-content:space-evenly;
-  flex-direction: column;
+  align-items:start;
+  flex-direction:column;
   z-index:1;
   transition: top 0.5s ease;
+  gap:35px;
+}
+.border-line{
+  border:1px solid black ;
 }
 .zindex{
   position:relative;

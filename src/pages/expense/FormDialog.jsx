@@ -26,7 +26,7 @@ export default function FormDialog() {
 
   return (
     <React.Fragment>
-      <div className='bg-[#ced4da] text-[#000] text-[45px] w-16 h-16 flex items-center justify-center rounded-full min-add' onClick={handleClickOpen}> 
+      <div className='mode-set text-[45px] w-16 h-16 flex items-center justify-center rounded-full min-add' onClick={handleClickOpen}> 
       <AddCircleRoundedIcon fontSize="medium"  />
       </div>
       <Dialog

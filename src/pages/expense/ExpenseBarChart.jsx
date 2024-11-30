@@ -45,8 +45,8 @@ export default function ExpenseBarChart() {
     }, 0);
 
     return {
-      month: `${month}`, // Format month as 'MM-YYYY'
-      expenseAmount: totalAmount || 0, // If no data, set to 0
+      month: `${month}`,
+      expenseAmount: totalAmount || 0,
     };
   });
 

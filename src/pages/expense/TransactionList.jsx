@@ -30,12 +30,12 @@ const TransactionList = () => {
   return (
     <>
        <div className='flex items-center justify-between w-[99%] min-font'>
-          <h2 className='mt-2 p-1 min-font'>TRANSACTIONS</h2>
+          <h2 className='mt-2 p-1 min-font mode-set'>TRANSACTIONS</h2>
           <select
             id="filter"
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
-            className='w-[50px] rounded-sm mt-3 bg-[#ffffff] '
+            className='w-[50px] rounded-sm mt-3 mode-set '
           >
             <option value="all">Sort</option>
             <option value="all">All</option>
@@ -52,7 +52,7 @@ const TransactionList = () => {
               return date.toLocaleString();
             };
             return (
-              <li className=' shadow-md flex items-center p-[15px] w-[98%] bg-[#ffffff] justify-between borders min-font'>
+              <li className=' shadow-sm flex items-center p-[15px] w-[98%] mode-set justify-between borders min-font'>
                 <div className='flex gap-2 items-center'>
                   {transactionType === 'expense' ? (<img className='w-8 h-8 rounded-full' src={expenseimg} alt="" />) : (<img className='w-8 h-8 rounded-full' src={incomeimg} alt="" />)}
                   <div className='flex flex-col'>
@@ -62,7 +62,7 @@ const TransactionList = () => {
                 </div>
                 <div className='flex items-center justify-center gap-2t'>
                   {transactionType === 'income' ? (<h5 className='text-green-600 min-font'>₹ {transactionAmount.toLocaleString()}</h5>) : (<h5 className='text-red-600 min-font'>₹ {transactionAmount.toLocaleString()}</h5>)}
-                  <button className='p-1 rounded-md border-0 text-[#2c2c2c] bg-[#ffffff] flex items-center justify-center
+                  <button className='p-1 rounded-md border-0 mode-set flex items-center justify-center
                   ' onClick={() => deleteuser(id)} > 
                   <DeleteIcon fontSize='medium' />
                    </button>

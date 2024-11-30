@@ -88,20 +88,13 @@ const DownloadTransactions = () => {
   };
 
   return (
-    <button
-      onClick={handleDownload}
-      style={{
-        padding: '10px',
-        background: '#000000c7',
-        color: '#fff',
-        border: 'none',
-        borderRadius: '5px',
-        cursor: 'pointer',
-        marginTop: '20px',
-      }}
-    >
-      Download Transactions
-    </button>
+<button
+  onClick={handleDownload}
+  className="px-4 py-2 border-none rounded-full cursor-pointer mt-5 w-full h-10 button-color"
+>
+  DOWNLOAD TRANSACTIONS
+</button>
+
   );
 };
 

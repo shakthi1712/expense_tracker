@@ -1,16 +1,18 @@
 import BasicPie from './BasicPie'
 import ExpenseBarChart from './ExpenseBarChart';
 import FormDialog from './FormDialog';
+import React, { useEffect } from 'react';
 import Header from './Header';
 import { TotalDatas } from './TotalDatas';
 import TransactionList from './TransactionList';
 import LeaderboardRoundedIcon from '@mui/icons-material/LeaderboardRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import { useState } from 'react';
+import {useMode} from '../../hooks/useMode';
 const ExpenseTracker = () => {
   const[page,setPage]=useState(false);
   return (
-    <div className='bg-[#ffffff]'>
+    <div className='mode-set'>
       <div className='min-header zindex'>
         <Header />
       </div>
@@ -27,7 +29,7 @@ const ExpenseTracker = () => {
         <BasicPie />
        <ExpenseBarChart />
       </div>
-      <div className='w-full bg-[#ced4da] flex items-center justify-around min-header'>
+      <div className='w-full shadow-lg flex items-center justify-around min-header'>
           <HomeRoundedIcon fontSize="medium" onClick={()=>setPage(false)} />
           <FormDialog  />
           <LeaderboardRoundedIcon fontSize="medium" onClick={()=>setPage(true)} />

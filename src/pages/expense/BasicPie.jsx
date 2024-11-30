@@ -55,7 +55,7 @@ export default function PieAnimation() {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }} >
       <PieChart
         height={200}
         series={[
