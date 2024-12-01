@@ -24,7 +24,7 @@
 }
 .dark-mode {
   --background-color: #141318;
-  --background-color-element:#373646;
+  --background-color-element:#323234;
   --text-color: #FEFFFF;
   --button-background:rgb(255, 255, 255);
   --button-color:rgb(0, 0, 0);
@@ -104,6 +104,11 @@ box-shadow: 1px 0px 300px 200px rgba(0,0,0,1);
 .scrollbar-thumb {
   scrollbar-color: #161616 #e5e7ebad; 
   scrollbar-width: thin; 
+}
+.box-shadows{
+  -webkit-box-shadow: 1px -9px 42px -16px rgba(0,0,0,1);
+-moz-box-shadow: 1px -9px 42px -16px rgba(0,0,0,1);
+box-shadow: 1px -9px 10px -16px rgba(0,0,0,1);
 }
 
 .scrollbar-thumb::-webkit-scrollbar {

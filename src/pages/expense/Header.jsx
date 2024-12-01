@@ -32,7 +32,7 @@ const Header = () => {
         <>
             {profilePhoto && (
                 <>
-                <div className='flex items-center justify-between gap-4 shadow-md h-[70px]  p-2 min-head-font min-header zindex mode-set'>
+                <div className='flex items-center justify-between gap-4 shadow-lg h-[70px]  p-2 min-head-font min-header zindex mode-set'>
                     <div className='font-light' >🪙<span className='font-extrabold' >EXPENSE</span> TRACKER</div>
                     <div className='flex items-center justify-center gap-2' onClick={() => { profile === false ? setprofile(true) : setprofile(false) }} >
                      {profile===true?(<CloseIcon fontSize='large' className='hover:cursor-pointer' />):(<MenuIcon fontSize='large' className='hover:cursor-pointer' />)}    
@@ -51,7 +51,7 @@ const Header = () => {
                 className={`h-[40px] w-[48%] border-[0.1px] ${mode === 'dark' ? 'text-[#000000] bg-white' : 'text-[#ffffff] bg-black'} outline-none rounded-full`}
                 onClick={() => handleMode()}
               >
-                {mode === 'light' ? 'LIGHT MODE' : 'DARK MODE'}
+                {mode === 'light' ? 'DARK MODE' : 'LIGHT MODE'}
               </button>
                 </div>
 

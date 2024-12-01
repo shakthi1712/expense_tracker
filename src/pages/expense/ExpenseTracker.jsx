@@ -8,15 +8,15 @@ import TransactionList from './TransactionList';
 import LeaderboardRoundedIcon from '@mui/icons-material/LeaderboardRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import { useState } from 'react';
-import {useMode} from '../../hooks/useMode';
+import { useMode } from '../../hooks/useMode';
 const ExpenseTracker = () => {
-  const[page,setPage]=useState(false);
+  const [page, setPage] = useState(false);
   return (
     <div className='mode-set'>
       <div className='min-header zindex'>
         <Header />
       </div>
-      <div className={page===false?'flex min-screen':'hidden'} >
+      <div className={page === false ? 'flex min-screen' : 'hidden'} >
         <div className='h-[40vh] w-[50%] min-screen-main'>
           <TotalDatas />
         </div>
@@ -24,22 +24,19 @@ const ExpenseTracker = () => {
           <TransactionList />
         </div>
       </div>
-      <div className={page===true?'h-[86vh] flex flex-col justify-evenly p-4 mode-set ':'hidden'}>
+      <div className={page === true ? 'h-[86vh] flex flex-col justify-evenly p-4 mode-set ' : 'hidden'}>
         <h3 className='text-center'>DATA VISUALIZATION</h3>
         <div className='bg-white rounded-md'>
-       <BasicPie />
-       
-       </div>
-       <div  className='bg-white rounded-md'>
-       <ExpenseBarChart />
-       </div>
-      
-
+          <BasicPie />
+        </div>
+        <div className='bg-white rounded-md'>
+          <ExpenseBarChart />
+        </div>
       </div>
-      <div className='w-full shadow-lg flex items-center justify-around min-header'>
-          <HomeRoundedIcon fontSize="medium" onClick={()=>setPage(false)} />
-          <FormDialog  />
-          <LeaderboardRoundedIcon fontSize="medium" onClick={()=>setPage(true)} />
+      <div className='w-full flex items-center justify-around min-header box-shadows'>
+        <HomeRoundedIcon fontSize="medium" onClick={() => setPage(false)} />
+        <FormDialog />
+        <LeaderboardRoundedIcon fontSize="medium" onClick={() => setPage(true)} />
       </div>
     </div>
   )
